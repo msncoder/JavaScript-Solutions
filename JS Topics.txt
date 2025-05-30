@@ -1,0 +1,108 @@
+introduction
+variable
+let var const
+primitive data types
+concatination.
+string interpolation.
+type conversion
+string indexing
+strings methods
+s.indexof("a")
+s.lastindexof("a")
+s.charAt(11)
+s.endswith("a")
+s.includes(" ")
+s.substring(0,11)
+s.substr(3,4)
+s.slice(0,4)
+s.split(" ")
+s.replace("a","b")
+s.length
+operators
+if 
+else if
+else
+prompt 
+switch statements
+Loops
+arrays
+push,pop,shift,unshift,splice(start,delete,replace),
+slice(start,end),includes
+objects
+function and scoping
+simple function
+parameterize function
+default perameterize function.
+return keyword
+scoping 
+const na reassign hoga na redeclear 
+let reassign hoga redeclear nhi hoga
+var redeclear reassign dono hoga
+
+DOM Manipulation in JS
+let arr = document.body.children;
+let newarr = Array.from(arr)
+let a = document.getElementById("email")
+console.log(a);
+let b = document.getElementsByName("email")
+console.log(b[0])
+let c = document.getElementsByClassName("email")
+console.log(c[0])
+let d = document.getElementsByTagName("input")
+console.log(d[0]);
+
+let f = document.querySelector("div")
+console.log(f)
+let g = document.querySelectorAll("div")
+console.log(g)
+console.log(g[0])
+
+let a = document.getElementByTagName("email")
+console.log(a[0])
+a[0].textcontent = "new"
+a[0].innerText = "new"
+a[0].innerHTML = `<h1>hello</h1>`
+a[0].style.backgroundColor = "red"
+a[0].style.color = "red"
+a[0].style.font = "100 1.5rem roboto"
+
+
+mybtn.getattribute("class")
+mybtn.setAttribute("class","Hello")
+
+const h2 = document.createElement("h2")
+
+1) h2.innerText = "hello"
+
+2) h2.content = "hy"
+
+3) const myText = document.createTextNode("sample")
+h2.append(myText)
+
+document.body.prepend(h2)
+
+
+array methods
+find ==> find only return first element who satisfied condition
+filter == fliter return array of elements who satisfied condition
+every == every return only true and false if condition meet the array
+some == kohi bhe element agar satisfied krta hy true return krta hy
+map === it's return new array. kuch methods perform kr k
+reduce == ye poori aaray ko single digit mai convert krta hy.
+
+
+Math Object & Date
+
+Math.round(4.7)
+Math.floor(4.2)
+Math.ceil(4.9)
+Math.trunc(8.999)
+Math.pow(2,10)
+Math.sqrt(100)
+Math.abs(-5)
+math.floor(math.random() * 10 + 1) ab ye 1 sy 10 k beech mai exect value return karay ga
+
+let a = new Date()
+new Date(2012,11,12,5,12,12,12)
+console.log(a.getday())
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 80%;
+        min-height: 100vh;
+        background-color: gray;
+        margin: auto;
+      }
+      .upper {
+        width: 80%;
+        margin: auto;
+      }
+
+      .container > div > input {
+        width: 70%;
+        padding: 4px;
+        outline: none;
+        border: none;
+        margin: 4px;
+        border-radius: 4px;
+      }
+
+      .btn {
+        width: 100px;
+        padding: 4px;
+        background-color: gray;
+        border: 1px solid white;
+        color: white;
+        border-radius: 4px;
+      }
+      .btn:hover {
+        background-color: white;
+        color: gray;
+        border: 1px solid white;
+        cursor: pointer;
+      }
+
+      .tags {
+        margin: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        background-color: purple;
+        /* display: inline-block; */
+        color: white;
+        padding: 4px;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="upper">
+        <input type="text" id="name" />
+        <button class="btn" onclick="addname()">Add</button>
+      </div>
+      <div class="tags">
+        <!-- <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div>
+        <div class="tag">Hi my name is saad</div> -->
+      </div>
+    </div>
+
+    <script>
+      const name = document.getElementById("name");
+      const tags = document.getElementsByClassName("tags")[0];
+      console.log(tags);
+
+      const addname = () => {
+        if (name === "") {
+          return null;
+        }
+
+        const tag = document.createElement("div");
+        tag.setAttribute("class", "tag");
+
+        tag.innerText = name.value;
+        tags.append(tag);
+      };
+    </script>
+  </body>
+</html>

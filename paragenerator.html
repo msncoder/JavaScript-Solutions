@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        background-color: purple;
+        min-height: 100vh;
+        /* width: 100%; */
+        /* color: white; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 20px;
+      }
+      h1 {
+        margin-top: 20px;
+        color: white;
+      }
+      #count-inp {
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        padding: 7px;
+      }
+
+      #count-inp::-webkit-outer-spin-button,
+      #count-inp::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      #para-btn {
+        padding: 7px;
+        color: purple;
+        border-radius: 10px;
+        border: 1px solid transparent; /* Add border here */
+        transition: all 0.3s ease;
+      }
+
+      #para-btn:hover {
+        background-color: rgb(91, 1, 91);
+        color: white;
+        cursor: pointer;
+        border: 1px solid white;
+      }
+      .parashow {
+        background-color: white;
+        padding: 10px;
+        color: purple;
+        border-radius: 10px;
+        margin: 15px;
+        width: 50%;
+        margin-inline: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Generate Random Text Paragraph</h1>
+      <div class="generate">
+        <input type="number" id="count-inp" placeholder="Enter a number" />
+        <button id="para-btn" onclick="clk()">Generate</button>
+      </div>
+
+      <div class="content"></div>
+    </div>
+
+    <script>
+      const input = document.getElementById("count-inp");
+      let words = "abcdefgikhlmnopqrstuvwxyz";
+
+      const clk = () => {
+        const div = document.getElementsByClassName("content")[0];
+        // console.log(div);
+
+        // console.log(input.value);
+        let val = Number(input.value);
+        let txtres = "";
+        for (let i = 0; i < val; i++) {
+          let rand = Math.floor(Math.random() * 10) + 1;
+          word = "";
+          //   console.log(rand);
+          for (let j = 0; j < rand; j++) {
+            let randchar = words[Math.floor(Math.random() * words.length)];
+            word += randchar;
+          }
+          txtres += word + " ";
+        }
+        // console.log(txtres);
+        const p = document.createElement("p");
+        p.setAttribute("class", "parashow");
+
+        p.innerText = txtres;
+        div.append(p);
+      };
+    </script>
+  </body>
+</html>

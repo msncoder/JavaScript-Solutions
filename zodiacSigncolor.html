@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="zodiac">Choose a Zodiac Sign:</label>
+    <select id="zodiac" name="zodiac">
+      <option value="" disabled selected>Choose a Zodiac Sign</option>
+      <option value="aries">aries</option>
+      <option value="Taurus">Taurus</option>
+      <option value="gemine">gemine</option>
+      <option value="cancer">cancer</option>
+      <option value="leo">leo</option>
+      <option value="virgo">virgo</option>
+      <option value="libra">libra</option>
+      <option value="scorpio">scorpio</option>
+      <option value="sagittarius">sagittarius</option>
+      <option value="capricon">capricon</option>
+      <option value="aquarius">aquarius</option>
+      <option value="pices">pices</option>
+    </select>
+    <button onclick="chng()">Click</button>
+
+    <script>
+      const chng = () => {
+        sign = document.getElementById("zodiac");
+        body = document.body;
+
+        switch (sign.value) {
+          case "aries":
+            body.style.backgroundColor = "red";
+            break;
+          case "Taurus":
+            body.style.backgroundColor = "blue";
+            break;
+          case "gemine":
+            body.style.backgroundColor = "green";
+            break;
+          case "cancer":
+            body.style.backgroundColor = "yellow";
+            break;
+          case "leo":
+            body.style.backgroundColor = "black";
+            break;
+          case "virgo":
+            body.style.backgroundColor = "brown";
+            break;
+          case "libra":
+            body.style.backgroundColor = "pink";
+            break;
+          case "scorpio":
+            body.style.backgroundColor = "gray";
+            break;
+          case "sagittarius":
+            body.style.backgroundColor = "#87CEEB";
+            break;
+          case "capricon":
+            body.style.backgroundColor = "purple";
+            break;
+          case "aquarius":
+            body.style.backgroundColor = "cream";
+            break;
+          case "pices":
+            body.style.backgroundColor = "golden";
+            break;
+
+          default:
+            break;
+        }
+      };
+    </script>
+  </body>
+</html>
