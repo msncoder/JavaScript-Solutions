@@ -82,14 +82,6 @@ h2.append(myText)
 document.body.prepend(h2)
 
 
-array methods
-find ==> find only return first element who satisfied condition
-filter == fliter return array of elements who satisfied condition
-every == every return only true and false if condition meet the array
-some == kohi bhe element agar satisfied krta hy true return krta hy
-map === it's return new array. kuch methods perform kr k
-reduce == ye poori aaray ko single digit mai convert krta hy.
-
 
 Math Object & Date
 
@@ -105,4 +97,73 @@ math.floor(math.random() * 10 + 1) ab ye 1 sy 10 k beech mai exect value return 
 let a = new Date()
 new Date(2012,11,12,5,12,12,12)
 console.log(a.getday())
+
+
+
+array methods
+find ==> find only return first element who satisfied condition
+filter == fliter return array of elements who satisfied condition
+every == every return only true and false if condition meet the array
+some == kohi bhe element agar satisfied krta hy true return krta hy
+map === it's return new array. kuch methods perform kr k
+reduce == ye poori aaray ko single digit mai convert krta hy.
+
+
+EventListner
+
+btn.addEventListner("click",()=>{
+box1.classlist.add("classfordiv");})
+
+box1.addEventlistner("mouseover",()=>{
+btn.style.transform = "scale(1.1)"})
+
+box1.addEventlistner("mouseout",()=>{
+btn.style.transform = ""})
+
+
+local storage vs sessionStorage
+
+local storage pooray browser ki same hoti hy
+session storage hr tab ki alag hoti hy.
+
+sessionStorage.setItem("key1"input.value)
+sessionStrage.removeItem("key1")
+sessionStorage.clear()
+
+
+SetTimeout & SetInterval
+
+  let clr = document.getElementById("clr")
+        console.log(clr);
+        
+        const printName = (name) => {
+            console.log(name);
+            
+        }
+
+	//SIRF Ek dafa Chalay ga time poora hony py
+	// let customeTimeout = setTimeout(printName,2000,"saad")
+        
+	//Ek Baar Click hony py SetTimeout braek kr dy ga
+        // clr.addEventListener("click",()=>{
+        //     clearTimeout(customeTimeout)
+        //     console.log("clear");
+            
+        // })
+
+	
+	// Baar Baar Chalay ga us Time k Baad
+        let customeTimeout =  setInterval(printName,2000,"saad")
+
+        
+        
+	//Ek Baar  SetInterval break kr dy ga
+        
+        clr.addEventListener("click",()=>{
+            clearInterval(customeTimeout)
+            console.log("clear");
+            
+        })
+
+
 

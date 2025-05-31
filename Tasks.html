@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Tasks</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: bisque;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 80vw;
+      margin: auto;
+      background-color: white;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .subcontainer {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .subcontainer h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      font-size: 1rem;
+    }
+
+    .submit-btn {
+      padding: 10px;
+      background-color: antiquewhite;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: fit-content;
+      align-self: center;
+      font-weight: bold;
+    }
+
+    .tasks {
+      width: 50%;
+      background-color: bisque;
+      margin: 20px auto;
+      padding: 15px;
+      color: black;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .tasks h2 {
+      margin-bottom: 5px;
+      font-size: 1.2rem;
+    }
+
+    .tasks p {
+      font-size: 1rem;
+    }
+
+    .tasks button {
+      height: 50px;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background-color: #ffcccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="subcontainer">
+      <h1>Daily Tasks</h1>
+      <div class="form-group">
+        <input type="text" id="title" placeholder="Enter a Title" />
+        <textarea id="desc" rows="4" placeholder="Enter a Description"></textarea>
+      </div>
+      <button class="submit-btn">Submit</button>
+    </div>
+
+    <!-- <div class="tasks">
+      <div>
+        <h2>This is title</h2>
+        <p>This is Task</p>
+      </div>
+      <button id="task-btn">−</button>
+    </div>
+  </div> -->
+
+  <script>
+    const container = document.getElementsByClassName("container")[0]
+    const title = document.getElementById("title");
+    const description = document.getElementById("desc");
+    // const taskContainer = document.querySelector(".tasks");
+    const btn = document.getElementsByClassName("submit-btn")[0]
+    // const titleHeading = taskContainer.querySelector("h2");
+    // const taskParagraph = taskContainer.querySelector("p");
+
+
+tasksArr = localStorage.getItem("tasksArr") ? JSON.parse(localStorage.getItem("tasksArr")):[]
+
+    function showAll(){
+        tasksArr.forEach((value,index) => {
+        const div = document.createElement("div")
+        div.setAttribute("class","tasks")
+
+        const innerDiv = document.createElement("div")
+        div.append(innerDiv)
+
+        const h = document.createElement("h2")
+        h.innerText = value.Title
+        innerDiv.append(h)
+        
+        const p = document.createElement("p")
+        p.innerText = value.desc
+        innerDiv.append(p)
+
+        const bt = document.createElement("button")
+        bt.setAttribute("id","task-btn")
+        bt.innerText = "-"
+        div.append(bt)
+
+        bt.addEventListener("click",()=>{
+            TaskRemove();
+            tasksArr.splice(index,1)
+            localStorage.setItem("tasks",JSON.stringify(tasksArr));
+
+            showAll()
+        })
+
+        container.append(div)
+
+            
+
+        });
+    }
+
+
+    function TaskRemove(){
+        tasksArr.forEach(()=>{
+           const task = document.querySelector(".tasks");
+        task.remove()
+        })
+    }
+
+  
+    btn.addEventListener("click",()=>{
+        TaskRemove()
+        tasksArr.push(
+            {"Title":title.value,
+            "desc":description.value}
+        )
+        localStorage.setItem("tasks",JSON.stringify(tasksArr));
+        title.value = "";
+        description.value = "";
+
+        console.log(tasksArr);
+        showAll()
+        
+    })
+  
+  </script>
+
+</body>
+</html>
